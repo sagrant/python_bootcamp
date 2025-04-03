@@ -48,7 +48,6 @@ for line in handle:
 for key_sample_ID, value_sequence in test_dict.items():
     get_sequence = test_dict.get(key_sample_ID)
 
-
 ### PANDAS ###
 # Read file in as a dataframe 
 sam_file = pd.read_csv('alignment_ex.sam', sep = '\t', skiprows = 9) 
