@@ -56,3 +56,12 @@ sam_file = pd.read_csv('alignment_ex.sam', sep = '\t', skiprows = 9)
 for result, data in sam_file.iterrows():
     alignment_hit = result[0]
     data_point = data[0]
+    
+# Use groupby function to manipulate dataframe 
+diamond_output_df = pd.read_csv('diamond_output_ex.m8', sep = '\t', index_col = False, header = None,\
+                                names = ['Gene', 'Protein', 'Pident', 'Length', 'Mismatch', \
+                                        'Gapopen', 'Qstart', 'Qend', 'Sstart', 'Send', 'E-value', \
+                                        'Bitscore', 'Taxon', 'Taxon_ID'])
+
+grouped_df = diamond_output_df.groupby('Gene').mean()
+
